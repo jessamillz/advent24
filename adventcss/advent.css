@@ -1,0 +1,316 @@
+/* Box Model Hack */
+* {
+     box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+    width: 100%;
+    margin: auto;   
+}
+#bodybg {
+    background-image: url("../advent-images/adventpagebg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    /* 1 pixel black shadow to left, top, right and bottom */
+    text-shadow: -1px 0 rgb(77, 0, 0), 0 1px rgb(77, 0, 0), 1px 0 rgb(77, 0, 0), 0 -1px rgb(77, 0, 0);
+    margin: 10px auto 0 auto;
+    padding: 10px 40px;
+    width: fit-content;
+    background-color: rgba(0, 36, 0, 0.9);
+}
+#countdown {
+    font-size: 1.8em;
+}
+
+footer {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+footer > p {
+    margin-bottom: 5px;
+}
+footer > a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 20px;
+    padding: 3px 12px 5px 12px;
+    border-radius: 10px;
+}
+a:hover {
+    background-color: rgba(250, 123, 123, .5);
+}
+/******************************************
+/* BOXES
+/*******************************************/
+
+#boxes {   
+    margin: 50px auto;
+    padding: 0 20px;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+.box {
+    position: relative;
+    border-radius: 10px;
+    min-width: 125px;
+    min-height: 125px; 
+    background-color: rgba(250, 123, 123, .9);
+}
+.box span {
+    margin: 3px 5px;
+    padding: 0 3px;
+    border-radius: 10px;
+    font-size: 32px;   
+    font-weight: 900;
+    color:rgba(0, 36, 0, 0.9);
+    background-color: rgba(250, 123, 123, .3);
+    z-index: 3;
+}
+.hidden{
+	visibility: hidden;
+}
+#box_1_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift1.jpg");
+    z-index: 2;
+}
+#box_2_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift2.jpg");
+    z-index: 2;
+}
+#box_3_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift3.jpg");
+    z-index: 2;
+}
+#box_4_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift4.jpg");
+    z-index: 2;
+}
+#box_5_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift5.jpg");
+    z-index: 2;
+}
+#box_6_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift6.jpg");
+    z-index: 2;
+}
+#box_7_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift7.jpg");
+    z-index: 2;
+}
+#box_8_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift8.jpg");
+    z-index: 2;
+}
+#box_9_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift9.jpg");
+    z-index: 2;
+}
+#box_10_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift10.jpg");
+    z-index: 2;
+}
+#box_11_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift11.jpg");
+    z-index: 2;
+}
+#box_12_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift12.jpg");
+    z-index: 2;
+}
+#box_13_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift13.png");
+    z-index: 2;
+}
+#box_14_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift14.jpg");
+    z-index: 2;
+}
+#box_15_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift15.jpg");
+    z-index: 2;
+}
+#box_16_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift16.jpg");
+    z-index: 2;
+}
+#box_17_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift17.jpg");
+    z-index: 2;
+}
+#box_18_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift18.jpg");
+    z-index: 2;
+}
+#box_19_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift19.jpg");
+    z-index: 2;
+}
+#box_20_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift20.jpg");
+    z-index: 2;
+}
+#box_21_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift21.jpg");
+    z-index: 2;
+}
+#box_22_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift22.jpg");
+    z-index: 2;
+}
+#box_23_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift23.jpg");
+    z-index: 2;
+}
+#box_24_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift24.jpg");
+    z-index: 2;
+}
+#box_25_advent {   
+    margin-top: -37px;
+    border-radius: 10px;
+    height: 125px;
+    width: 125px;
+    background-image: url("../advent-images/gift25.gif");
+    z-index: 2;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+ h1 {
+    font-size: 3em;
+ }
+ h2 {
+    font-size: 2em;
+ }
+ p {
+    font-size: 1.5em;
+ }
