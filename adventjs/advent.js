@@ -39,7 +39,7 @@
 // COUNTDOWN TIMER
 //******************************** */
 // Set the date we're counting down to
-const countDownDate = new Date("12/25/2022").getTime();
+const countDownDate = new Date("12/25/2024").getTime();
 
 // Update the count down every 1 second, that's the 1000 at the end of the function
 let x = setInterval(function() {
@@ -57,8 +57,7 @@ let x = setInterval(function() {
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id="demo"
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+  document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     
   // If the count down is over, write some text 
   if (distance < 0) {
@@ -67,11 +66,17 @@ let x = setInterval(function() {
   }
 }, 1000);
 
+//TODO:
+// - Remove redundancies: having boxClick function typed 25 times
+// - Make the boxes so it's not required to input each specific date over and over.
+//   - maybe a function that can calculate the new date based on what box is being populated?
+//FIXME: sdgsdgsgsgd
+
 //******************************** */
 // function occurs on box click getting input for actions 
 //******************************** */
 function boxClick(boxId, adventDate, adventBoxId) {
-    document.querySelector(boxId).addEventListener('click', () => adventFun(adventDate, adventBoxId))
+    document.querySelector(boxId).addEventListener('click', () => adventFun(adventDate, adventBoxId));
 }
 //******************************** */
 // CHECK DATE TO SEE IF WE CAN RUN ADVENT OR NOT, IF NOT ALERT HOW MUCH TIME UNTIL WE CAN
@@ -86,11 +91,12 @@ function checkDate(adventDate){
     let hoursUntil = Math.floor((timeDifference % (1000 * 3600 * 24)) / (1000 * 3600)); 
     let minutesUntil = Math.floor((timeDifference % (1000 * 3600)) / (1000 * 60));
     let secondsUntil = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
     if (date1 >= adventDate ) { //can compare date objects with =, <, >, >=
         return true;
     }
     else { 
-        alert("Today's date is " + today + ". This box will be available on " + adventDay + ". Time until " + adventDay + ": " + daysUntil +" days, " + hoursUntil + " hours, " + minutesUntil + " minutes, " + secondsUntil + " seconds!");
+        alert(`Today's date is ${today}. This box will be available on ${adventDay}. Time until ${adventDay}: ${daysUntil} days, ${hoursUntil} hours, ${minutesUntil} minutes, ${secondsUntil} seconds!`);
         }  
 }
 //******************************** */
@@ -109,152 +115,171 @@ function activateBox(adventBoxId){
 }
 
 //******************************** */
-// BOX 1 DONE
+// Loop to Register Event Listeners Dynamically
 //******************************** */
-// Available to click 12/1/22
-boxClick('#box_1', '12/01/2022', '#box_1_advent');
-
-
-//******************************** */
-// BOX 2 DONE
-//******************************** */
-// Available to click 12/2/22
-boxClick('#box_2', '12/02/2022', '#box_2_advent');
-
-//******************************** */
-// BOX 3 DONE
-//******************************** */
-// Available to click 12/3/22
-boxClick('#box_3', '12/03/2022', '#box_3_advent');
+function initializeBoxes(){
+    const adventStartDate = new Date("12/01/2024");
+    for (let i = 1; i <= 25; i++) {
+        const adventDate = new Date(adventStartDate);
+        adventDate.setDate(adventStartDate.getDate() + (i - 1));
+        // toISOSting converts date object to ISO 8601 string: eg 2024-12-01T00:00:00.000Z
+        // split('T)[0] splits into 2 strings, [0] index retrieves date portion
+        boxClick(`#box_${i}`, adventDate.toISOString().split('T')[0], `#box_${i}_advent`);
+    }
+}
 
 //******************************** */
-// BOX 4 DONE
+// REPLACES CREATING EACH BOX INDIVIDUALLY
 //******************************** */
-// Available to click 12/4/22
-boxClick('#box_4', '12/04/2022', '#box_4_advent');
+initializeBoxes();
 
-//******************************** */
-// BOX 5 DONE
-//******************************** */
-// Available to click 12/5/22
-boxClick('#box_5', '12/05/2022', '#box_5_advent');
+// //******************************** */
+// // BOX 1 DONE
+// //******************************** */
+// // Available to click 12/1/22
+// boxClick('#box_1', '12/01/2024', '#box_1_advent');
 
-//******************************** */
-// BOX 6 DONE
-//******************************** */
-// Available to click 12/6/22
-boxClick('#box_6', '12/06/2022', '#box_6_advent');
 
-//******************************** */
-// BOX 7 DONE
-//******************************** */
-// Available to click 12/7/22
-boxClick('#box_7', '12/07/2022', '#box_7_advent');
+// //******************************** */
+// // BOX 2 DONE
+// //******************************** */
+// // Available to click 12/2/22
+// boxClick('#box_2', '12/02/2022', '#box_2_advent');
 
-//******************************** */
-// BOX 8 DONE
-//******************************** */
-// Available to click 12/8/22
-boxClick('#box_8', '12/08/2022', '#box_8_advent');
+// //******************************** */
+// // BOX 3 DONE
+// //******************************** */
+// // Available to click 12/3/22
+// boxClick('#box_3', '12/03/2022', '#box_3_advent');
 
-//******************************** */
-// BOX 9 DONE 
-//******************************** */
-// Available to click 12/9/22
-boxClick('#box_9', '12/09/2022', '#box_9_advent');
+// //******************************** */
+// // BOX 4 DONE
+// //******************************** */
+// // Available to click 12/4/22
+// boxClick('#box_4', '12/04/2022', '#box_4_advent');
 
-//******************************** */
-// BOX 10 DONE
-//******************************** */
-// Available to click 12/10/22
-boxClick('#box_10', '12/10/2022', '#box_10_advent');
+// //******************************** */
+// // BOX 5 DONE
+// //******************************** */
+// // Available to click 12/5/22
+// boxClick('#box_5', '12/05/2022', '#box_5_advent');
 
-//******************************** */
-// BOX 11 DONE
-//******************************** */
-// Available to click 12/11/22
-boxClick('#box_11', '12/11/2022', '#box_11_advent');
+// //******************************** */
+// // BOX 6 DONE
+// //******************************** */
+// // Available to click 12/6/22
+// boxClick('#box_6', '12/06/2022', '#box_6_advent');
 
-//******************************** */
-// BOX 12 DONE
-//******************************** */
-// Available to click 12/12/22
-boxClick('#box_12', '12/12/2022', '#box_12_advent');
+// //******************************** */
+// // BOX 7 DONE
+// //******************************** */
+// // Available to click 12/7/22
+// boxClick('#box_7', '12/07/2024', '#box_7_advent');
 
-//******************************** */
-// BOX 13 DONE
-//******************************** */
-// Available to click 12/13/22
-boxClick('#box_13', '12/13/2022', '#box_13_advent');
+// //******************************** */
+// // BOX 8 DONE
+// //******************************** */
+// // Available to click 12/8/22
+// boxClick('#box_8', '12/08/2022', '#box_8_advent');
 
-//******************************** */
-// BOX 14 DONE
-//******************************** */
-// Available to click 12/14/22
-boxClick('#box_14', '12/14/2022', '#box_14_advent');
+// //******************************** */
+// // BOX 9 DONE 
+// //******************************** */
+// // Available to click 12/9/22
+// boxClick('#box_9', '12/09/2022', '#box_9_advent');
 
-//******************************** */
-// BOX 15 DONE
-//******************************** */
-// Available to click 12/15/22
-boxClick('#box_15', '12/15/2022', '#box_15_advent');
+// //******************************** */
+// // BOX 10 DONE
+// //******************************** */
+// // Available to click 12/10/22
+// boxClick('#box_10', '12/10/2022', '#box_10_advent');
 
-//******************************** */
-// BOX 16 DONE
-//******************************** */
-// Available to click 12/16/22
-boxClick('#box_16', '12/16/2022', '#box_16_advent');
+// //******************************** */
+// // BOX 11 DONE
+// //******************************** */
+// // Available to click 12/11/22
+// boxClick('#box_11', '12/11/2022', '#box_11_advent');
 
-//******************************** */
-// BOX 17 DONE
-//******************************** */
-// Available to click 12/17/22
-boxClick('#box_17', '12/17/2022', '#box_17_advent');
+// //******************************** */
+// // BOX 12 DONE
+// //******************************** */
+// // Available to click 12/12/22
+// boxClick('#box_12', '12/12/2022', '#box_12_advent');
 
-//******************************** */
-// BOX 18 DONE
-//******************************** */
-// Available to click 12/18/22
-boxClick('#box_18', '12/18/2022', '#box_18_advent');
+// //******************************** */
+// // BOX 13 DONE
+// //******************************** */
+// // Available to click 12/13/22
+// boxClick('#box_13', '12/13/2022', '#box_13_advent');
 
-//******************************** */
-// BOX 19 DONE
-//******************************** */
-// Available to click 12/19/22
-boxClick('#box_19', '12/19/2022', '#box_19_advent');
+// //******************************** */
+// // BOX 14 DONE
+// //******************************** */
+// // Available to click 12/14/22
+// boxClick('#box_14', '12/14/2022', '#box_14_advent');
 
-//******************************** */
-// BOX 20 DONE
-//******************************** */
-// Available to click 12/20/22
-boxClick('#box_20', '12/20/2022', '#box_20_advent');
+// //******************************** */
+// // BOX 15 DONE
+// //******************************** */
+// // Available to click 12/15/22
+// boxClick('#box_15', '12/15/2022', '#box_15_advent');
 
-//******************************** */
-// BOX 21 DONE
-//******************************** */
-// Available to click 12/21/22
-boxClick('#box_21', '12/21/2022', '#box_21_advent');
+// //******************************** */
+// // BOX 16 DONE
+// //******************************** */
+// // Available to click 12/16/22
+// boxClick('#box_16', '12/16/2022', '#box_16_advent');
 
-//******************************** */
-// BOX 22 DONE
-//******************************** */
-// Available to click 12/22/22
-boxClick('#box_22', '12/22/2022', '#box_22_advent');
+// //******************************** */
+// // BOX 17 DONE
+// //******************************** */
+// // Available to click 12/17/22
+// boxClick('#box_17', '12/17/2022', '#box_17_advent');
 
-//******************************** */
-// BOX 23 DONE
-//******************************** */
-// Available to click 12/23/22
-boxClick('#box_23', '12/23/2022', '#box_23_advent');
+// //******************************** */
+// // BOX 18 DONE
+// //******************************** */
+// // Available to click 12/18/22
+// boxClick('#box_18', '12/18/2022', '#box_18_advent');
 
-//******************************** */
-// BOX 24 DONE
-//******************************** */
-// Available to click 12/24/22
-boxClick('#box_24', '12/24/2022', '#box_24_advent');
+// //******************************** */
+// // BOX 19 DONE
+// //******************************** */
+// // Available to click 12/19/22
+// boxClick('#box_19', '12/19/2022', '#box_19_advent');
 
-//******************************** */
-// BOX 25 DONE
-//******************************** */
-// Available to click 12/25/22
-boxClick('#box_25', '12/25/2022', '#box_25_advent');
+// //******************************** */
+// // BOX 20 DONE
+// //******************************** */
+// // Available to click 12/20/22
+// boxClick('#box_20', '12/20/2022', '#box_20_advent');
+
+// //******************************** */
+// // BOX 21 DONE
+// //******************************** */
+// // Available to click 12/21/22
+// boxClick('#box_21', '12/21/2022', '#box_21_advent');
+
+// //******************************** */
+// // BOX 22 DONE
+// //******************************** */
+// // Available to click 12/22/22
+// boxClick('#box_22', '12/22/2022', '#box_22_advent');
+
+// //******************************** */
+// // BOX 23 DONE
+// //******************************** */
+// // Available to click 12/23/22
+// boxClick('#box_23', '12/23/2022', '#box_23_advent');
+
+// //******************************** */
+// // BOX 24 DONE
+// //******************************** */
+// // Available to click 12/24/22
+// boxClick('#box_24', '12/24/2022', '#box_24_advent');
+
+// //******************************** */
+// // BOX 25 DONE
+// //******************************** */
+// // Available to click 12/25/22
+// boxClick('#box_25', '12/25/2022', '#box_25_advent');
